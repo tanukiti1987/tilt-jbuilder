@@ -8,6 +8,7 @@ Gem::Specification.new do |gem|
 
   gem.add_dependency 'tilt', '>= 1.3.0', '< 3'
   gem.add_dependency 'jbuilder'
+  gem.add_dependency 'activesupport', '>= 4.2.0'
 
   gem.add_development_dependency 'bundler'
 

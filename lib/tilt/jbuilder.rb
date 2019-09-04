@@ -1,5 +1,6 @@
 require 'tilt'
 require 'jbuilder'
+require 'active_support/cache'
 
 module Tilt
   class Jbuilder < ::Jbuilder
@@ -38,7 +39,9 @@ module Tilt
 
     # for now caching is not supported, but at least we can transparently ignore it
     def cache!(key=nil, options={}, &block)
-      yield
+      ::Rails.cache.fetch(key, options) do
+        yield
+      end
     end
 
     private
